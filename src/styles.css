@@ -1,0 +1,59 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.dynapuff-400 {
+  font-family: DynaPuff, system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
+.peent {
+  position: absolute;
+  visibility: hidden;
+  margin: 0;
+}
+
+.peent * {
+  position: absolute;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('/images/party.gif');
+}
+
+.background::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  animation: background-animation 1s linear infinite alternate forwards;
+}
+
+@keyframes background-animation {
+  from {
+    backdrop-filter: hue-rotate(0deg);
+  }
+
+  to {
+    backdrop-filter: hue-rotate(360deg);
+  }
+}
+
+@media only screen and (width <= 1000px) {
+  .background {
+    background-repeat: repeat-y;
+    background-size: contain;
+  }
+}
