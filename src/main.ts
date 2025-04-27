@@ -32,3 +32,19 @@ function handlePeent(x: number, y: number) {
 
   audioElement.play();
 }
+
+const motion = window.matchMedia('(prefers-reduced-motion: no-preference)');
+
+if (motion.matches) {
+  let scheme = document.querySelector(
+    'meta[name="theme-color"]'
+  ) as HTMLMetaElement;
+  let hue = 0;
+  let color;
+
+  setInterval(() => {
+    color = `hsl(${(hue += 5)} 50% 30%)`;
+    document.body.style.background = color;
+    scheme.setAttribute('content', color);
+  }, 50);
+}
